@@ -1,4 +1,4 @@
-# DMeteor
+# MeteorD
 run meteor in docker easily
 
 ## From MeteorD
