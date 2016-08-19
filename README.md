@@ -8,7 +8,7 @@ Most of code of this repo is from the great [MeteorD](https://github.com/kadirah
 Add following `Dockerfile` into the root of your app:
 
 ``````
-FROM zhaoyao91/dmeteor
+FROM feit/meteord
 ``````
 
 Then you can build the docker image with:

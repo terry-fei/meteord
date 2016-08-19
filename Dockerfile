@@ -1,18 +1,18 @@
 FROM debian:wheezy
-MAINTAINER zhaoyao91
+MAINTAINER feit
 
 # setup environment
-ENV DMETEOR_DIR /opt/dmeteor
-COPY scripts $DMETEOR_DIR
-RUN bash $DMETEOR_DIR/init.sh
+ENV METEORD_DIR /opt/meteord
+COPY scripts $METEORD_DIR
+RUN bash $METEORD_DIR/init.sh
 
 # build app
 ENV APP_SRC_DIR /app_src
 ENV APP_DIR /app
-ONBUILD RUN bash $DMETEOR_DIR/install_meteor.sh
+ONBUILD RUN bash $METEORD_DIR/install_meteor.sh
 ONBUILD COPY ./ $APP_SRC_DIR
-ONBUILD RUN bash $DMETEOR_DIR/build_app.sh
+ONBUILD RUN bash $METEORD_DIR/build_app.sh
 
 # run app
 EXPOSE 80
-ENTRYPOINT bash $DMETEOR_DIR/run_app.sh
+ENTRYPOINT bash $METEORD_DIR/run_app.sh
