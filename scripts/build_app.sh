@@ -2,16 +2,21 @@ set -e
 
 BUNDLE_DIR=/tmp/bundle
 
-cd $APP_SRC_DIR
-npm install --production
-meteor build --directory $BUNDLE_DIR
+# install meteor
+curl -sL https://install.meteor.com | sed s/--progress-bar/-sL/g | /bin/sh
 
-cd $BUNDLE_DIR/bundle/programs/server
-npm install --production
+# build app
+cd $APP_SRC_DIR
+npm install
+meteor build --directory $BUNDLE_DIR
 
 mv $BUNDLE_DIR/bundle $APP_DIR
 
-# cleanup
+# install packages
+cd $APP_DIR/programs/server
+npm install --production
+
+# clean up
 rm -rf $APP_SRC_DIR
 rm -rf $BUNDLE_DIR
 rm -rf ~/.meteor

@@ -9,7 +9,6 @@ RUN bash $METEORD_DIR/init.sh
 # build app
 ENV APP_SRC_DIR /app_src
 ENV APP_DIR /app
-ONBUILD RUN bash $METEORD_DIR/install_meteor.sh
 ONBUILD COPY ./ $APP_SRC_DIR
 ONBUILD RUN bash $METEORD_DIR/build_app.sh
 
