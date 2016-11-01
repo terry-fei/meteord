@@ -8,7 +8,7 @@ curl -sL https://install.meteor.com | sed s/--progress-bar/-sL/g | /bin/sh
 # build app
 cd $APP_SRC_DIR
 npm install
-meteor build --server-only --directory $BUNDLE_DIR
+meteor build --unsafe-perm --server-only --directory $BUNDLE_DIR
 
 mv $BUNDLE_DIR/bundle $APP_DIR
 
